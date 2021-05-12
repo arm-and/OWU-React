@@ -1,0 +1,9 @@
+.main{
+    display: flex;
+}
+.user-number{
+    width: 500px;
+    height: 80px;
+    background-color: darkgoldenrod;
+    border-radius: 10px;
+}
