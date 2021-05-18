@@ -1,16 +1,13 @@
 import {useEffect, useState} from "react";
-import {getUsers, getUser} from "../../services/api.service";
+import {getUsers} from "../../services/api.service";
 import User from "../user/User";
 
 export default function Users({match: {url}}) {
-    console.log(url)
     const [users, setUsers] = useState([]);
 
-
     useEffect(() => {
-        getUsers().then(value => setUsers([...value.data]))
+        getUsers().then(value => setUsers([...value.data]));
     }, []);
-
 
     return (
         <div>

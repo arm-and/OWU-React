@@ -1,16 +1,13 @@
 import {useEffect, useState} from "react";
-import {getPosts, getPost} from "../../services/api.service";
+import {getPosts} from "../../services/api.service";
 import Post from "../post/Post";
 
 export default function Posts() {
-
     const [posts, setPosts] = useState([]);
 
-
     useEffect(() => {
-        getPosts().then(value => setPosts([...value.data]))
+        getPosts().then(value => setPosts([...value.data]));
     }, []);
-
 
     return (
         <div>
@@ -21,9 +18,6 @@ export default function Posts() {
                         item={value}
                     />)
                 }
-            </div>
-            <div>
-
             </div>
         </div>
     );
