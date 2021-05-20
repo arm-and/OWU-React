@@ -1,9 +1,11 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import "./user-stylesheet.css"
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export default function User({item, url}) {
+
     const [showText, setShowText] = useState(false);
+
     return (
         <div className={'user-style'}>
             {item.id}-{item.name}
