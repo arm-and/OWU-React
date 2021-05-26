@@ -1,18 +1,13 @@
-import {INC_TWO, INC_CUSTOM_TWO, DEC_TWO, RESET_TWO} from "../action-types";
+import {INC_TWO, DEC_TWO, RESET_TWO} from "../action-types";
 
 const initialState = {
     counter: 0
 }
+
 const reducer = (state = initialState, action) => {
 
     switch (action.type) {
         case INC_TWO: {
-            return {
-                ...state,
-                counter: state.counter + 1
-            }
-        }
-        case INC_CUSTOM_TWO: {
             return {
                 ...state,
                 counter: state.counter + action.payload
@@ -21,7 +16,7 @@ const reducer = (state = initialState, action) => {
         case DEC_TWO: {
             return {
                 ...state,
-                counter: state.counter - 1
+                counter: state.counter - action.payload
             }
         }
         case RESET_TWO: {
@@ -31,10 +26,9 @@ const reducer = (state = initialState, action) => {
             }
         }
         default: {
-            console.log('action', action.type, 'does not exist');
             return state;
         }
     }
 }
 
-export default reducer
+export default reducer;
