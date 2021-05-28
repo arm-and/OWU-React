@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {
     decAction, decActionTwo, incAction, incActionTwo, resetAction, resetActionTwo
 } from "./redux/action-creators";
+import PhotosList from "./components/PhotosList";
 
 function App() {
     const {counter1, counter2} = useSelector(({counter1, counter2}) => ({
@@ -34,6 +35,9 @@ function App() {
                     <button onClick={() => dispatch(incActionTwo(1))}>INC</button>
                     <button onClick={() => dispatch(decActionTwo(1))}>DEC</button>
                     <button onClick={() => dispatch(resetActionTwo())}>RESET</button>
+                </div>
+                <div className={'photos-list'}>
+                    {!!(counter1 % 2) && <PhotosList/>}
                 </div>
             </div>
         </div>
