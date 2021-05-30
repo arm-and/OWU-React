@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {onAddToBad, onUsersLoaded, onRemoveFromBad} from "../redux/action-creators/user-action-creators";
-import {appId, url} from "../services/user.service";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { onAddToBad, onRemoveFromBad, onUsersLoaded } from "../redux/action-creators";
+import userServices from "../services/user.service";
 
 const PhotosList = () => {
 
@@ -11,19 +11,13 @@ const PhotosList = () => {
     const badEmployees = useSelector(({userReducer: {badEmployees}}) => badEmployees);
 
     const fetchPhotos = async () => {
-
-        const resp = await fetch(
-            url,
-            appId,
-        );
-
+        const resp = await userServices.getUsersPhotos();
         const json = await resp.json();
 
         dispatch(onUsersLoaded(json.data));
     }
 
     useEffect(() => {
-
         if (!users.length) {
             fetchPhotos();
         }
