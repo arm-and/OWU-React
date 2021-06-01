@@ -4,6 +4,7 @@ import {
     decAction, decActionTwo, incAction, incActionTwo, resetAction, resetActionTwo
 } from "./redux/action-creators";
 import PhotosList from "./components/PhotosList";
+import ProductsList from "./components/ProductsList";
 
 function App() {
     const {counter1, counter2} = useSelector(({counter1, counter2}) => ({
@@ -38,6 +39,9 @@ function App() {
                 </div>
                 <div className={'photos-list'}>
                     {!!(counter1 % 2) && <PhotosList/>}
+                </div>
+                <div className={'products-list'}>
+                    <ProductsList/>
                 </div>
             </div>
         </div>

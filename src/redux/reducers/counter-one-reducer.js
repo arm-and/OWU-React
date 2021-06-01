@@ -1,7 +1,10 @@
 import {INC, DEC, RESET} from "../action-types";
 
-const initialState = {
-    counter: 0
+const initFormLs = localStorage.getItem('counter1')
+
+const initialState = initFormLs ? JSON.parse(initFormLs) : {
+    counter: 0,
+    isAllowedToChange: true
 }
 
 export const reducer = (state = initialState, action) => {
