@@ -1,4 +1,5 @@
-import {START_PRODUCTS_LOADING, END_PRODUCTS_LOADING, SET_PRODUCTS_LOADING} from "../action-types";
+import {END_PRODUCTS_LOADING, SET_PRODUCTS_LOADING, START_PRODUCTS_LOADING} from "../action-types";
+import productsServices from "../../services/products.services";
 
 export const startProductsLoading = () => ({type: START_PRODUCTS_LOADING});
 export const endProductsLoading = () => ({type: END_PRODUCTS_LOADING});
@@ -8,7 +9,7 @@ export const loadProductsLoading = () => async (dispatch) => {
 
     try {
         dispatch(startProductsLoading())
-        const resp = await fetch('https://fakestoreapi.com/products');
+        const resp = await productsServices.getProducts();
         const json = await resp.json();
         dispatch(setProductsLoading(json));
         console.log(json);
