@@ -8,7 +8,7 @@ export const setProductsLoading = (payload) => ({type: SET_PRODUCTS_LOADING, pay
 export const loadProductsLoading = () => async (dispatch) => {
 
     try {
-        dispatch(startProductsLoading())
+        dispatch(startProductsLoading());
         const resp = await productsServices.getProducts();
         const json = await resp.json();
         dispatch(setProductsLoading(json));
@@ -16,6 +16,6 @@ export const loadProductsLoading = () => async (dispatch) => {
     } catch (e) {
         console.error(e);
     } finally {
-        dispatch(endProductsLoading())
+        dispatch(endProductsLoading());
     }
-}
+};

@@ -1,8 +1,4 @@
-import {
-    START_PRODUCTS_LOADING,
-    END_PRODUCTS_LOADING,
-    SET_PRODUCTS_LOADING
-} from "../action-types/";
+import {END_PRODUCTS_LOADING, SET_PRODUCTS_LOADING, START_PRODUCTS_LOADING} from "../action-types/";
 
 const initialState = {
     products: [],

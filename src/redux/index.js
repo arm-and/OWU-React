@@ -1,6 +1,5 @@
 import {applyMiddleware, createStore} from "redux";
 import {reducer} from "./reducers";
-import {DEC, INC, RESET} from "./action-types";
 import thunk from "redux-thunk";
 
 const logger = (store) => (next) => (action) => {
@@ -12,28 +11,16 @@ const logger = (store) => (next) => (action) => {
     return result
 };
 
-const protectCounter = (store) => (next) => (action) => {
-
-    const actionsForCounter = [INC, DEC, RESET];
-
-    const {isAllowedToChange} = store.getState().counter1
-
-    if (!isAllowedToChange && actionsForCounter.includes(action.type)) {
-        console.log('you"re not allowed to modify counter');
-        return;
-    }
-    next(action)
-}
-
 const persister = (store) => (next) => (action) => {
 
     next(action);
 
-    const {counter1} = store.getState();
-    localStorage.setItem('counter1', JSON.stringify(counter1));
-}
+    const {wishlist, cart} = store.getState();
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    localStorage.setItem('cart', JSON.stringify(cart));
+};
 
-const middlewares = [thunk, protectCounter, logger, persister];
+const middlewares = [thunk, logger, persister];
 
 export const store = createStore(
     reducer,

@@ -1,0 +1,24 @@
+header {
+    display: flex;
+    align-items: center;
+    background: #090938;
+    justify-content: space-between;
+    color: beige;
+    padding: 0 12px;
+}
+
+header span {
+    margin-right: 10px;
+}
+
+.products-ui {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.items {
+    width: 40%;
+    margin: 10px auto;
+    border: solid chocolate 4px;
+    text-align: center;
+}
