@@ -11,14 +11,8 @@ function App() {
 
     return (
         <div className={'App'}>
-            <div className={"header"}>
-                <Header/>
-            </div>
-            <div className={'product-ui'}>
-                <div className={'products-list'}>
-                    <ProductsList/>
-                </div>
-            </div>
+            <Header/>
+            <ProductsList/>
         </div>
     );
 }
