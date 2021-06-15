@@ -1,11 +1,13 @@
+import React, {useMemo} from "react";
 import {useSelector} from "react-redux";
-import {useMemo} from "react";
 
 export default function Header() {
 
-    const {products} = useSelector(store => store.products);
-    const {productsInCart} = useSelector(store => store.cart);
-    const {productsInWishlist} = useSelector(store => store.wishlist);
+    const {products, productsInCart, productsInWishlist} = useSelector(store => ({
+        ...store.products,
+        ...store.cart,
+        ...store.wishlist
+    }));
 
     const calculatedCartSum = useMemo(() => {
         return products
